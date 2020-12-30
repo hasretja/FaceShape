@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - FaceShape</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
+        <div class="container"><a class="navbar-brand" href="{{ url_for('root') }}">FaceShape</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button></div>
+    </nav>
+    <header class="masthead text-center text-white">
+        <div class="masthead-content">
+            <div class="container">
+                <h1 class="masthead-heading mb-0">Find Your Face Shape</h1>
+                <h2 class="masthead-subheading mb-0">Find The Right Glasses And Hairstyle For You</h2></div>
+        </div>
+        <div class="bg-circle-1 bg-circle"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <div class="bg-circle-4 bg-circle"></div>
+    </header>
+    <section>
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5">
+                        <img src="{{ url_for('video_feed') }}" alt="video feed" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2">
+                    <div class="col-xs-6">
+                        <div class="p-5">
+                            <a href="{{ url_for('capture') }}" class="btn btn-primary btn-lg rounded-pill mt-4 mb-4" role="button" alt="take picture">Take Picture</a>
+                            <h2 class="display-4">How FaceShape Works And What It Does ?</h2>
+                            <p>FaceShape detects your face with computer vision technologies and then determines the shape of your face with machine learning techniques, thus allowing you to find the most suitable glasses and hair style for you. It is sufficient to see your face clearly in the photo you take for the system to work.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-5 bg-black">
+        <div class="container">
+            <p class="text-center text-white m-0 small">Copyright&nbsp;© FaceShape 2020</p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <address>
+              <a class="text-center text-white m-0 small">first.last@example.com</a>
+            </address>
+        </div>
+    </footer>
+    <script src="{{ url_for('static',filename='jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+</body>
+
+</html>

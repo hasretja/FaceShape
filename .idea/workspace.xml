@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="94ace5ba-bc76-4cdb-a82b-694ce12e9cb6" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kCc9Z5xmcW9oBBWFdcwgNsisJA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../arge" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Python Projeleri\Projects\AIFORBUSINESS\camera-app-master\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="camera-app-master" type="PythonConfigurationType" factoryName="Python">
+      <module name="camera-app-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Anaconda\envs\notebook\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="94ace5ba-bc76-4cdb-a82b-694ce12e9cb6" name="Default Changelist" comment="" />
+      <created>1605207862617</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605207862617</updated>
+      <workItem from="1605207872596" duration="1069000" />
+      <workItem from="1605209038468" duration="7000" />
+      <workItem from="1605253018804" duration="2928000" />
+      <workItem from="1605292548783" duration="620000" />
+      <workItem from="1605351958386" duration="637000" />
+      <workItem from="1605609752571" duration="5603000" />
+      <workItem from="1605687660051" duration="4483000" />
+      <workItem from="1605955674571" duration="8063000" />
+      <workItem from="1605982006588" duration="1985000" />
+      <workItem from="1606051197853" duration="7158000" />
+      <workItem from="1606062835181" duration="605000" />
+      <workItem from="1606565224544" duration="759000" />
+      <workItem from="1606567273052" duration="2397000" />
+      <workItem from="1606570257536" duration="3999000" />
+      <workItem from="1606583023192" duration="1426000" />
+      <workItem from="1606589250911" duration="1739000" />
+      <workItem from="1606592987414" duration="878000" />
+      <workItem from="1606658774938" duration="1218000" />
+      <workItem from="1606670994895" duration="618000" />
+      <workItem from="1606725017300" duration="1640000" />
+      <workItem from="1606812849152" duration="595000" />
+      <workItem from="1606994828990" duration="504000" />
+      <workItem from="1607067777528" duration="632000" />
+      <workItem from="1607081396484" duration="967000" />
+      <workItem from="1607083300579" duration="600000" />
+      <workItem from="1607180207299" duration="6515000" />
+      <workItem from="1607203806287" duration="2160000" />
+      <workItem from="1607413525243" duration="5191000" />
+      <workItem from="1607627952290" duration="675000" />
+      <workItem from="1607673433563" duration="601000" />
+      <workItem from="1607676777227" duration="289000" />
+      <workItem from="1607774824210" duration="438000" />
+      <workItem from="1607778289073" duration="1692000" />
+      <workItem from="1607794311511" duration="2518000" />
+      <workItem from="1607799456487" duration="2301000" />
+      <workItem from="1607857474059" duration="1928000" />
+      <workItem from="1607873918307" duration="608000" />
+      <workItem from="1607878876974" duration="44000" />
+      <workItem from="1607927724108" duration="17123000" />
+      <workItem from="1607956232858" duration="601000" />
+      <workItem from="1608016249742" duration="8209000" />
+      <workItem from="1608103378312" duration="3296000" />
+      <workItem from="1608116150572" duration="831000" />
+      <workItem from="1608190328207" duration="626000" />
+      <workItem from="1608202145907" duration="703000" />
+      <workItem from="1608211081064" duration="731000" />
+      <workItem from="1608277480768" duration="1371000" />
+      <workItem from="1609097103997" duration="450000" />
+      <workItem from="1609097606114" duration="636000" />
+      <workItem from="1609149180173" duration="1595000" />
+      <workItem from="1609182003408" duration="1519000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605617991805">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605617991805" />
+    <state x="731" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605982395662">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="731" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605982395662" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1608279220800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608279220800" />
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom" timestamp="1609187871656">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609187871656" />
+    <state width="1877" height="284" key="GridCell.Tab.0.center" timestamp="1609187871656">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609187871656" />
+    <state width="1877" height="284" key="GridCell.Tab.0.left" timestamp="1609187871656">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609187871656" />
+    <state width="1877" height="284" key="GridCell.Tab.0.right" timestamp="1609187871656">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609187871656" />
+    <state width="1877" height="273" key="GridCell.Tab.1.bottom" timestamp="1607956223084">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="273" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607956223084" />
+    <state width="1877" height="273" key="GridCell.Tab.1.center" timestamp="1607956223084">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="273" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607956223084" />
+    <state width="1877" height="273" key="GridCell.Tab.1.left" timestamp="1607956223084">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="273" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607956223084" />
+    <state width="1877" height="273" key="GridCell.Tab.1.right" timestamp="1607956223084">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="273" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607956223084" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1609356163181">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609356163181" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/camera_app_master$camera_app_master.coverage" NAME="camera-app-master Coverage Results" MODIFIED="1609182014017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>
