@@ -1,9 +1,22 @@
+from __future__ import print_function
 import cv2
 import dlib
 import pandas as pd
 from pandas import DataFrame
 from sklearn.cluster import KMeans
 import os
+import cv2 as cv
+import math
+import time
+import webcolors
+import numpy as np
+import binascii
+import struct
+from PIL import Image
+import PIL
+import scipy
+import scipy.misc
+import scipy.cluster
 
 xLocationList=[]
 yLocationList=[]
@@ -15,13 +28,120 @@ df=DataFrame()
 mainDf=DataFrame()
 mainData=DataFrame()
 
+def getFaceBox(net, frame, conf_threshold=0.7):
+    frameOpencvDnn = frame.copy()
+    frameHeight = frameOpencvDnn.shape[0]
+    frameWidth = frameOpencvDnn.shape[1]
+    blob = cv.dnn.blobFromImage(frameOpencvDnn, 1.0, (300, 300), [104, 117, 123], True, False)
+
+    net.setInput(blob)
+    detections = net.forward()
+    bboxes = []
+    for i in range(detections.shape[2]):
+        confidence = detections[0, 0, i, 2]
+        if confidence > conf_threshold:
+            x1 = int(detections[0, 0, i, 3] * frameWidth)
+            y1 = int(detections[0, 0, i, 4] * frameHeight)
+            x2 = int(detections[0, 0, i, 5] * frameWidth)
+            y2 = int(detections[0, 0, i, 6] * frameHeight)
+            bboxes.append([x1, y1, x2, y2])
+            cv.rectangle(frameOpencvDnn, (x1, y1), (x2, y2), (0, 255, 0), int(round(frameHeight/150)), 8)
+    return frameOpencvDnn, bboxes
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+faceProto = "modelNweight/opencv_face_detector.pbtxt"
+faceModel = "modelNweight/opencv_face_detector_uint8.pb"
+
+ageProto = "modelNweight/age_deploy.prototxt"
+ageModel = "modelNweight/age_net.caffemodel"
+
+genderProto = "modelNweight/gender_deploy.prototxt"
+genderModel = "modelNweight/gender_net.caffemodel"
+
+MODEL_MEAN_VALUES = (78.4263377603, 87.7689143744, 114.895847746)
+ageList = ['(0-2)', '(4-6)', '(8-12)', '(15-20)', '(25-32)', '(38-43)', '(48-53)', '(60-100)']
+genderList = ['Male', 'Female']
+
+# Load network
+ageNet = cv.dnn.readNet(ageModel, ageProto)
+genderNet = cv.dnn.readNet(genderModel, genderProto)
+faceNet = cv.dnn.readNet(faceModel, faceProto)
+
+padding = 20
+
+
+def age_gender_detector(frame):
+    # Read frame
+    t = time.time()
+    frameFace, bboxes = getFaceBox(faceNet, frame)
+    for bbox in bboxes:
+        # print(bbox)
+        face = frame[max(0, bbox[1] - padding):min(bbox[3] + padding, frame.shape[0] - 1),
+               max(0, bbox[0] - padding):min(bbox[2] + padding, frame.shape[1] - 1)]
+
+        blob = cv.dnn.blobFromImage(face, 1.0, (227, 227), MODEL_MEAN_VALUES, swapRB=False)
+        genderNet.setInput(blob)
+        genderPreds = genderNet.forward()
+        print(genderPreds)
+        gender = genderList[genderPreds[0].argmax()]
+        print(gender)
+        ageNet.setInput(blob)
+        agePreds = ageNet.forward()
+
+        age = ageList[agePreds[0].argmax()]
+        
+        gender=gender+age
+        #label = "{},{}".format(gender, age)
+        #cv.putText(frameFace, label, (bbox[0], bbox[1] - 10), cv.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 255), 2,cv.LINE_AA)
+    return gender
+
+start = time.time()
+def closest_colour(requested_colour):
+    min_colours = {}
+    for key, name in webcolors.CSS3_HEX_TO_NAMES.items():
+        r_c, g_c, b_c = webcolors.hex_to_rgb(key)
+        rd = (r_c - requested_colour[0]) ** 2
+        gd = (g_c - requested_colour[1]) ** 2
+        bd = (b_c - requested_colour[2]) ** 2
+        min_colours[(rd + gd + bd)] = name
+    return min_colours[min(min_colours.keys())]
+
+def get_colour_name(requested_colour):
+    try:
+        closest_name = actual_name = webcolors.rgb_to_name(requested_colour)
+    except ValueError:
+        closest_name = closest_colour(requested_colour)
+        actual_name = None
+    return actual_name, closest_name
+
 def deneme(path):
     basedir = os.path.abspath(os.path.dirname(__file__))
     try:
+        inputphoto= cv.imread(path)
+        outputPhotoGanderAndAge = age_gender_detector(inputphoto)
         detector = dlib.get_frontal_face_detector()
         predictor = dlib.shape_predictor(
             basedir+"/shape_predictor_68_face_landmarks.dat")
         img = cv2.imread(path)
+        img2 = cv2.imread(path)
+        
+        #Detecting Edge of image
+        Edge = cv2.Canny(img2, 100, 150)
+        
+        Coords = np.nonzero(Edge)
+        
+        y = np.min(Coords[0])
+        y = y + 20
+        h,w,c = img2.shape
+        x = int(w/2)-14
+        #cv2.circle(img,(x,y), 5, (0,0,255), -1)
+        
+        color=img2[y,x]
+        print(color[0])
+        
+        requested_colour = (color[2], color[1], color[0])
+        actual_name, closest_name = get_colour_name(requested_colour)
+        
         gray = cv2.cvtColor(src=img, code=cv2.COLOR_BGR2GRAY)
         faces = detector(gray)
         for face in faces:
@@ -86,6 +206,13 @@ def deneme(path):
         points = []
         cluster_map.to_excel(basedir+'\clusters.xlsx', sheet_name='Sayfa1',
                              index=False)
+        
+        
+        
+        
+        
+        
+        
         for a in range(0, 5):
             print(centroids[a])
         for i in range(0, 5):
@@ -136,6 +263,6 @@ def deneme(path):
                     (points[i][1]).split(sep=".")[0] + "." + (points[i][1]).split(sep=".")[1]) < 10.00:
                     faceShape.append("Triangle")
 
-        return "Your Face Shape " + faceShape[int(str(cluster_map['cluster'].iloc[-1]))]
+        return "Your Face Shape :" + faceShape[int(str(cluster_map['cluster'].iloc[-1]))]+": Your Gender And Age :"+outputPhotoGanderAndAge+": Saçının Rengi:"+closest_name
     except:
-        return "An Error Occurred Try Again."
+        return "Bir Hata Oluştu:Bir Hata Oluştu:Bir Hata Oluştu:Bir Hata Oluştu:Bir Hata Oluştu:Bir Hata Oluştu:"

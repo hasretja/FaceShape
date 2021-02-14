@@ -1,145 +1,132 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>FaceShape</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
-</head>
-
-<body>
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
-        <div class="container"><a class="navbar-brand" href="{{ url_for('root') }}">FaceShape</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button></div>
-    </nav>
-    <header class="masthead text-center text-white">
-        <div class="masthead-content">
-            <div class="container">
-                <h1 class="masthead-heading mb-0">Find Your Face Shape</h1>
-                <h2 class="masthead-subheading mb-0">Here Are The Best Glasses And Hairstyles For You</h2></div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>VestesAi</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" />
+  </head>
+  <body>
+    <header id="home">
+      <!-- navbar -->
+      <nav id="nav">
+        <div class="nav-center">
+          <!-- nav header -->
+          <div class="nav-header">
+            <img src="{{url_for('static', filename='vestes_2.png')}}"  style="display: none;" class="logo" alt="logo" />
+            <ul class="links">
+              <li>
+                <a style="font-size: xx-large; font-family: 'Times New Roman', Times, serif; " href="#home" class="scroll-link">VestesAI</a>           
+              </li>
+            </ul>         
+            <button style="display:none" class="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+          <!-- links -->        
         </div>
-        <div class="bg-circle-1 bg-circle"></div>
-        <div class="bg-circle-2 bg-circle"></div>
-        <div class="bg-circle-3 bg-circle"></div>
-        <div class="bg-circle-4 bg-circle"></div>
-    </header>
-    <section>
-        <div class="d-flex justify-content-center my-4">
-            <h2 class="display-4">{{ faceShape }}</h2>
-        </div>
-        <div class="d-flex justify-content-center">
-            <img src="{{ url_for('static', filename=path) }}" alt="capture">
-        </div>
-        <div class="d-flex justify-content-center">
-            <a href="{{ url_for('root') }}" class="btn btn-primary btn-xl rounded-pill mt-5 mx-2" role="button">Take New Picture</a>
-            <a href="{{ url_for('static', filename=path) }}" class="btn btn-primary btn-xl rounded-pill mt-5 mx-2" role="button" download>Download Picture</a>
-        </div>
-        <div class="d-flex justify-content-center">
-            <div class="row my-3">
-              <div class="col mx-5"><h3>Our special glasses suggestions for you</h3></div>
-              <div class="col mx-5"><h3>Our special hair styles suggestions for you</h3></div>
-              <div class="w-100 mx-5">
-              </div>
-              <div class="col mx-5">
-                  <div class="col card mb-3">
-                  <img class="card-img-top" src="{{ url_for('static',filename=suggestionGlass1) }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                  </div>
-              </div>
-              <div class="col mx-5">
-                  <div class="col card mb-3">
-                  <img class="card-img-top" src="{{ url_for('static',filename=suggestionHair1) }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                  </div>
-              </div>
-              <div class="w-100"></div>
-              <div class="col mx-5">
-                  <div class="col card mb-3">
-                  <img class="card-img-top" src="{{ url_for('static',filename=suggestionGlass2) }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-              </div>
-              </div>
-              <div class="col mx-5">
-                  <div class="col card mb-3">
-                  <img class="card-img-top" src="{{ url_for('static',filename=suggestionHair2) }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                  </div>
-              </div>
-              <div class="w-100"></div>
-              <div class="col mx-5">
-                  <div class="col card mb-3">
-                  <img class="card-img-top" src="{{ url_for('static',filename=suggestionGlass3) }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-              </div>
-              </div>
-              <div class="col mx-5">
-                  <div class="col card mb-3">
-                  <img class="card-img-top" src="{{ url_for('static',filename=suggestionHair3) }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                  </div>
-              </div>
-                <div class="w-100"></div>
-              <div class="col mx-5">
-                  <div class="col card mb-3">
-                  <img class="card-img-top" src="{{ url_for('static',filename=suggestionGlass4) }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-              </div>
-              </div>
-              <div class="col mx-5">
-                  <div class="col card mb-3">
-                  <img class="card-img-top" src="{{ url_for('static',filename=suggestionHair4) }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                  </div>
-              </div>
+      </nav>
+       <!-- video -->
+      <video controls muted autoplay loop class="video-container">
+        <source src="{{url_for('static', filename='video.mp4')}}" type="video/mp4" />
+      </video>
+      <!-- banner -->
+      <div class="banner">
+        <div class="container" style="margin-bottom: 300px;">
+            <div class="d-flex justify-content-center">
+                <img style="margin-left: auto;margin-right: auto;width: 60%;margin-bottom: 30px;border-radius : 45px;border: 5px solid white;padding: 5px;" src="{{ url_for('static', filename=path) }}" alt="capture">
             </div>
+          <h1>İşlem Başarılı</h1>
+          <p>
+           VestesAI yaşınıza ve cinsiyetinize uygun gözlüğü buldu inceleye tıklayarak bakabilirsiniz.
+          </p>
+          <a href="#featuress" class="btn btn-white" >İncele</a>
+          <a href="{{ url_for('root') }}" class="btn btn-white" role="button">Yeni Fotoğraf Çek</a>
         </div>
+      </div>
+       <!-- video switch -->
+       <button class="switch-btn">
+        <span>
+          Oynat
+        </span>
+        <span>
+          Durdur
+        </span>
+        <span class="switch"></span>
+      </button>
+    </header>
+   <!-- features -->
+   <section id="features" class="section">
+    <div class="container">
+      <div class="title">
+        <h2>ÖZELLİKLER </h2>
+        <div class="underline"></div>
+        <hr class="new5">
+        <h4 class="text-muted section-subheading mt-3">Ürünümüzün Öne Çıkan Tarafları</h4>
+      </div>
+      <div class="row text-center mt-4">
+          <div class="col-md-4 "><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-camera fa-stack-1x fa-inverse"></i></span>
+              <h4 class="section-heading mt-4 font-weight-bold">Yapay Zeka</h4>
+              <p class="text-muted">Yapay zeka destekli modeller ile sizin yüz şeklinize göre en uygun  gözlüğü bulalım</p>
+          </div>
+          <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-hourglass-start fa-stack-1x fa-inverse"></i></span>
+              <h4 class="section-heading mt-4 font-weight-bold">Zamandan Kazanç</h4>
+              <p class="text-muted">Tek tek gözlük denemektense tek bir fotoğraf ile binlerce gözlüğü deneyin.</p>
+          </div>
+          <div id="featuress"   class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i></span>
+              <h4 class=" section-heading mt-4 font-weight-bold">Ücretsiz Deneyin</h4>
+              <p class="text-muted">Anlaşmalı olduğumuz mağazalarda ücretsiz deneme fırsatı.</p>
+          </div>
+      </div>
+  </div>
+ 
+  </section>
+     <!-- contact -->
+     <section  id="product" class="section">
+      <div class="title">
+        <h2 style="margin-top: 40px;">İşlem <span>Başarılı</span></h2>
+        <div class="underline"></div>
+        <h3 style="text-align: center; margin-top: 20px;">
+            Yüz Şekliniz:<span> {{ faceShape }}</span>
+        </h3>
+        <h3 style="text-align: center; margin-top: 20px;">
+            Cinsiyetiniz:<span> {{gander}}</span>
+        </h3>
+        <h3 style="text-align: center; margin-top: 20px;">
+            Yaş Aralığı:<span> {{age}}</span>
+        </h3>
+        <h3 style="text-align: center; margin-top: 20px;">
+            Saç Rengi:<span> {{hairColor}}</span>
+        </h3>
+      </div>
+      <div >
+        <div class="container" style="text-align: center">
+          <img style="width:400px; display: block; margin: 0 auto;" src="{{url_for('static',filename=photo)}}">
+          <h4 style="padding: 10px;">
+            Size en uygun gözlüğü bulmak için tıklayın.
+          </h4>
+          <a style="background-color: rgb(7, 78, 160);" href="{{link}}" target="_blank" class=" btn btn-white">İncele</a>
+        </div>
+      </div>
     </section>
-    <footer class="py-5 bg-black">
-        <div class="container">
-            <p class="text-center text-white m-0 small">Copyright&nbsp;© FaceShape 2020</p>
-        </div>
-        <div class="d-flex justify-content-center">
-            <address>
-              <a class="text-center text-white m-0 small">first.last@example.com</a>
-            </address>
-        </div>
-    </footer>
-    <script src="{{ url_for('static',filename='jquery.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
-</body>
-
+    <!-- footer -->
+    <footer class="section">
+      <p>
+        copyright &copy; VestesAI
+        <span id="date"></span>. bütün hakları saklıdır.
+      </p>
+    </footer>   
+    <a class="top-link" href="#home">
+      <i class="fas fa-arrow-up"></i>
+    </a>  
+    <!-- javascript -->
+    <script src="{{ url_for('static',filename='app.js') }}"></script>
+  </body>
 </html>

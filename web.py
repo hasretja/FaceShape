@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function
 import os
 import shutil
 from flask import Flask, render_template, request, \
@@ -16,6 +17,7 @@ mail_conf = "static/mail_conf.json"
 def get_camera():
     global camera
     if not camera:
+
         camera = Camera()
 
     return camera
@@ -72,71 +74,73 @@ def show_capture(timestamp):
             email_msg = "Email field empty!"
 
     faceShape=face_shape_detection.deneme(basedir + "/static/captures/" + str(timestamp) + ".jpg")
-    if faceShape=='Your Face Shape Square':
-        suggestionGlass1 = "browline Glasses.jpg"
-        suggestionGlass2 = "catEye Glasses .PNG"
-        suggestionGlass3 = "oval Glasses.jpg"
-        suggestionGlass4 = "rectangle Glasses.jpg"
-
-        suggestionHair1 = "square Woman-1.PNG"
-        suggestionHair2 = "square Man-1.PNG"
-        suggestionHair3 = "square Woman-2.PNG"
-        suggestionHair4 = "square Man-2.PNG"
-    if faceShape=='Your Face Shape Oval':
-        suggestionGlass1 = "aviator Glasses.jpg"
-        suggestionGlass2 = "browline Glasses.jpg"
-        suggestionGlass3 = "rectangle Glasses.jpg"
-        suggestionGlass4 = "square Glasses.png"
-
-        suggestionHair1 = "oval Woman-1.jpg"
-        suggestionHair2 = "oval Man-1.jpg"
-        suggestionHair3 = "oval Woman-2.jpg"
-        suggestionHair4 = "oval Man-2.jpg"
-    if faceShape=='Your Face Shape Rectangle':
-        suggestionGlass1 = "browline Glasses.jpg"
-        suggestionGlass2 = "catEye Glasses .PNG"
-        suggestionGlass3 = "oval Glasses.jpg"
-        suggestionGlass4 = "rectangle Glasses.jpg"
-
-        suggestionHair1 = "rectangle Woman-1.PNG"
-        suggestionHair2 = "rectangle Man-1.PNG"
-        suggestionHair3 = "rectangle Woman-2.PNG"
-        suggestionHair4 = "rectangle Man-2.PNG"
-    if faceShape=='Your Face Shape Round':
-        suggestionGlass1 = "aviator Glasses.jpg"
-        suggestionGlass2 = "rectangle Glasses.jpg"
-        suggestionGlass3 = "round Glasses.PNG"
-        suggestionGlass4 = "square Glasses.png"
-
-        suggestionHair1 = "round Woman-1.PNG"
-        suggestionHair2 = "round Man-1.PNG"
-        suggestionHair3 = "round Woman-2.PNG"
-        suggestionHair4 = "round Man-2.PNG"
-    if faceShape=='Your Face Shape Triangle':
-        suggestionGlass1 = "browline Glasses.jpg"
-        suggestionGlass2 = "catEye Glasses .PNG"
-        suggestionGlass3 = "oval Glasses.jpg"
-        suggestionGlass4 = "round Glasses.PNG"
-
-        suggestionHair1 = "triangle Woman-1.PNG"
-        suggestionHair2 = "triangle Man-1.PNG"
-        suggestionHair3 = "triangle Woman-2.PNG"
-        suggestionHair4 = "triangle Man-2.PNG"
-
-    if faceShape == 'An Error Occurred Try Again.':
-        suggestionGlass1 = "browline Glasses.jpg"
-        suggestionGlass2 = "catEye Glasses .PNG"
-        suggestionGlass3 = "oval Glasses.jpg"
-        suggestionGlass4 = "round Glasses.PNG"
-
-        suggestionHair1 = "triangle Woman-1.PNG"
-        suggestionHair2 = "triangle Man-1.PNG"
-        suggestionHair3 = "triangle Woman-2.PNG"
-        suggestionHair4 = "triangle Man-2.PNG"
-    return render_template('capture.html',
-        stamp=timestamp, path=path, email_msg=email_msg,faceShape=faceShape,
-                           suggestionGlass1=suggestionGlass1,suggestionGlass2=suggestionGlass2,suggestionGlass3=suggestionGlass3,suggestionGlass4=suggestionGlass4,
-                           suggestionHair1=suggestionHair1,suggestionHair2=suggestionHair2,suggestionHair3=suggestionHair3,suggestionHair4=suggestionHair4)
+    faceShapeSplit=faceShape.split(":")
+    hairSplit=faceShape.split(":")
+    ganderAndAge=faceShapeSplit[3].split("(")
+    age="Young"
+    photo=""
+    link=""
+    if ganderAndAge[0]=="Female" and faceShapeSplit[1]=="Triangle":
+        photo="kalp-kadin_300320.jpg"
+        link="https://www.atasunoptik.com.tr/kadin-kalp-yuz-sekline-uygun-gunes-gozlukleri"
+       
+    if ganderAndAge[0]=="Female" and faceShapeSplit[1]=="Rectangle":
+        photo="kare-kadin_300320.jpg"
+        link="https://www.atasunoptik.com.tr/kadin-kare-yuz-sekline-uygun-gunes-gozlukleri"
+    
+    if ganderAndAge[0]=="Female" and faceShapeSplit[1]=="Oval":
+        photo="oval-kadin_300320.jpg"
+        link="https://www.atasunoptik.com.tr/kadin-oval-yuz-sekline-uygun-gunes-gozlukleri"
+    
+    if ganderAndAge[0]=="Female" and faceShapeSplit[1]=="Square":
+        photo="kare-kadin_300320.jpg"
+        link="https://www.atasunoptik.com.tr/kadin-kare-yuz-sekline-uygun-gunes-gozlukleri"    
+    
+    if ganderAndAge[0]=="Female" and faceShapeSplit[1]=="Round":
+        link="https://www.atasunoptik.com.tr/kadin-yuvarlak-yuz-sekline-uygun-gunes-gozlukleri"
+        photo="yuvarlak-kadin_300320.jpg"
+        
+        
+        
+    if ganderAndAge[0]=="Male" and faceShapeSplit[1]=="Triangle":
+        photo="kalp-erkek_300320.jpg"
+        link="https://www.atasunoptik.com.tr/erkek-kalp-yuz-sekline-uygun-gunes-gozlukleri"
+       
+    if ganderAndAge[0]=="Male" and faceShapeSplit[1]=="Rectangle":
+        photo="kare-erkek_300320.jpg"
+        link="https://www.atasunoptik.com.tr/erkek-kare-yuz-sekline-uygun-gunes-gozlukleri"
+    
+    if ganderAndAge[0]=="Male" and faceShapeSplit[1]=="Oval":
+        photo="oval-erkek_300320.jpg"
+        link="https://www.atasunoptik.com.tr/erkek-oval-yuz-sekline-uygun-gunes-gozlukleri"
+    
+    if ganderAndAge[0]=="Male" and faceShapeSplit[1]=="Square":
+        photo="kare-erkek_300320.jpg"
+        link="https://www.atasunoptik.com.tr/erkek-yuvarlak-yuz-sekline-uygun-gunes-gozlukleri"
+    
+    if ganderAndAge[0]=="Male" and faceShapeSplit[1]=="Round":
+        photo="yuvarlak-erkek_300320.jpg"
+        link="https://www.atasunoptik.com.tr/erkek-kare-yuz-sekline-uygun-gunes-gozlukleri"
+        
+        
+    if faceShape[0]=="Bir Hata Oluştu":
+        photo="vestes_2.png"
+        link="https://www.atasunoptik.com.tr/yuz-sekillerine-uygun-gunes-gozlugu-onerileri"
+        
+        
+    if ganderAndAge[1]=="0-2)" or ganderAndAge[1]=="4-6)" or ganderAndAge[1]=="8-12)" :
+        age="child"
+        
+    if ganderAndAge[1]=="15-20)" or ganderAndAge[1]=="25-32)" :
+        age="Young"
+        
+    if ganderAndAge[1]=="38-43)" or ganderAndAge[1]=="48-53)" :
+        age="middle aged"
+        
+    if ganderAndAge[1]=="60-100)":
+        age="Old"
+    
+    return render_template('capture.html',stamp=timestamp, path=path,faceShape=faceShapeSplit[1],gander=ganderAndAge[0],age=age,hairColor=hairSplit[5],photo=photo,link=link)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
